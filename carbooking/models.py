@@ -8,8 +8,8 @@ class Customer(models.Model):
     phone=models.CharField(max_length=11)
 
     
-    # def __str__(self):
-    #     return self.booker
+    def __str__(self):
+        return str(self.booker) 
     
 
 class Brand(models.Model):
@@ -26,6 +26,17 @@ class Car(models.Model):
     brand=models.ManyToManyField(Brand)
     image=models.ImageField(null=True,blank=True)
     created = models.DateTimeField(auto_now_add =True)
+    
+    def __str__(self):
+        return self.name
+    
+    @property
+    def imageURL(self):
+        try:
+            url=self.image.url
+        except:
+            url=''
+        return url
     
     def __str__(self):
         return self.name

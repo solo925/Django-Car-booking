@@ -1,0 +1,14 @@
+{% extends 'carbooking/base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="mx-5">details</h1>
+<div class="row">
+    <ul class="list-group">
+        <li class="list-group-item">{{cars.name}}</li>
+        <li class="list-group-item">{{cars.customer}}</li>
+        <li class="list-group-item">{{cars.brand}}</li>
+        <li class="list-group-item">{{cars.created}}</li>
+    </ul>
+    
+</div>
+{% endblock content %}
