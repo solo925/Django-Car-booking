@@ -9,7 +9,7 @@
                 <img src="{{car.imageURL}}" alt="car" class="thumbnail">
                 <div class="box-element product">
                        <h6><strong>{{car.name}}</strong></h6> 
-                        <a href="#"><Button class="btn btn-outline-primary">Hire</Button></a>
+                        <a href="{% url 'hire' %}"><Button class="btn btn-outline-primary">Hire</Button></a>
                         <a href="{% url 'detail' car.id %}"><Button class="btn btn-outline-primary">Details</Button></a>
                         
                 </div>

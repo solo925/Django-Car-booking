@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import initiate_payment
 
 
 urlpatterns = [
@@ -8,4 +9,6 @@ urlpatterns = [
     path("login/",views.Login,name="login"),
     path("register/",views.register,name="register"),
     path("logout/",views.Logout,name="logout"),
+    path("hire/",views.Hire,name="hire"),
+    path('initiate-payment/', initiate_payment, name='initiate_payment'),
 ]

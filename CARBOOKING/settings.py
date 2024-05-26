@@ -135,3 +135,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
 
 LOGIN_REDIRECT_URL="home"
 REGISTER_REDIRECT_URL="login"
+
+# myproject/settings.py
+
+import environ
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
+# Now you can access the variables
+CONSUMER_KEY = os.getenv('eAnWBRl4qZlycD55rRnWf3ge8JJEPWqcjWZM3CcfPddM6twh')
+CONSUMER_SECRET = os.getenv('ZUkQJ6aUjIxpE6ndMAGzGfBbkUT9qHbhGqA2Knp51RJHd13oI5GWYvVlRpCercLD')
+SHORTCODE = os.getenv('174379')
+LIPA_NA_MPESA_ONLINE_SHORTCODE = os.getenv('174379')
+LIPA_NA_MPESA_ONLINE_PASSKEY = os.getenv('bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919')
+
+

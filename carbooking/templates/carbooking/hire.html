@@ -1,0 +1,25 @@
+{% extends 'carbooking/base.html' %}
+{% load static %}
+{% block content%}
+<!-- payments/templates/payments/payment_page.html -->
+    <div class="container mt-5">
+        <h2>Car Hire Payment</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="car_price">Car Price</label>
+                <input type="number" class="form-control" id="car_price" name="car_price" placeholder="Enter car price" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}

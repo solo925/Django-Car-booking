@@ -8,7 +8,18 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .forms import RegisterForm,LoginForm
 from django.contrib.auth.forms import UserCreationForm
-# Create your views here.
+from django.http import JsonResponse
+from .utils import lipa_na_mpesa_online
+
+def initiate_payment(request):
+    phone_number = request.GET.get('phone_number')
+    amount = request.GET.get('amount')
+    account_reference = 'your_account_reference'
+    transaction_desc = 'Payment Description'
+    callback_url = 'https://your_domain.com/payments/callback'
+    
+    response = lipa_na_mpesa_online(phone_number, amount, account_reference, transaction_desc, callback_url)
+    return JsonResponse(response)
 
 def Login(request):
     if request.method=="POST":
@@ -60,7 +71,11 @@ def Detail(request,pk):
     context={"cars":cars}
     return render(request,"carbooking/detail.html",context)
 
+def Hire(request):
+    context={}
+    return render(request,"carbooking/hire.html",context)
 
+@login_required
 def Logout(request):
     logout(request)
     
