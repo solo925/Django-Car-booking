@@ -12,7 +12,7 @@ from django.http import JsonResponse
 from .utils import lipa_na_mpesa_online
 
 def initiate_payment(request):
-    phone_number = request.GET.get('phone_number')
+    phone_number = request.GET.get('phone')
     amount = request.GET.get('amount')
     account_reference = 'your_account_reference'
     transaction_desc = 'Payment Description'
@@ -20,6 +20,7 @@ def initiate_payment(request):
     
     response = lipa_na_mpesa_online(phone_number, amount, account_reference, transaction_desc, callback_url)
     return JsonResponse(response)
+    
 
 def Login(request):
     if request.method=="POST":
@@ -60,6 +61,7 @@ def Home(request):
         cars=Car.objects.filter(name__icontains=query)
     else:
         cars = Car.objects.all() 
+        # brands=cars.brand.all()
     # cars = Car.objects.all()
     context={"cars":cars}
     return render(request,"carbooking/home.html",context)
@@ -68,10 +70,13 @@ def Home(request):
 
 def Detail(request,pk):
     cars=Car.objects.get(id=pk)
-    context={"cars":cars}
+    brands=cars.brand.all()
+    context={"cars":cars,"brands":brands}
     return render(request,"carbooking/detail.html",context)
 
 def Hire(request):
+
+    
     context={}
     return render(request,"carbooking/hire.html",context)
 
@@ -81,11 +86,7 @@ def Logout(request):
     
     return redirect("home")
 
-
-# def search(request):
-#     query=request.GET.get('q')
-#     if query:
-#         results=Car.objects.filter(name__icontains=query)
-#         return render(request,"carbooking/search.html",{"results":results})
-#     else:
-#         return render(request,"carbooking/search.html",{"results":None})
+def Status():
+    pass
+    
+    

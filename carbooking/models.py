@@ -26,6 +26,8 @@ class Car(models.Model):
     brand=models.ManyToManyField(Brand)
     image=models.ImageField(null=True,blank=True)
     created = models.DateTimeField(auto_now_add =True)
+    price=models.IntegerField(default=2000)
+    status=models.BooleanField(default=True)
     
     def __str__(self):
         return self.name

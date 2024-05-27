@@ -1,14 +1,22 @@
 {% extends 'carbooking/base.html' %}
 {% load static %}
 {% block content %}
-<h1 class="mx-5">details</h1>
-<div class="row">
-    <ul class="list-group">
-        <li class="list-group-item">{{cars.name}}</li>
-        <li class="list-group-item">{{cars.customer}}</li>
-        <li class="list-group-item">{{cars.brand}}</li>
-        <li class="list-group-item">{{cars.created}}</li>
-    </ul>
-    
+
+<div class="box-element product">
+    <h1 class="mx-5">details</h1>
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item">Car Name:{{cars.name}}</li>
+            {% comment %} <li class="list-group-item">{{cars.customer}}</li> {% endcomment %}
+            <li class="list-group-item">Booking Price:{{cars.price}}</li>
+            <li class="list-group-item">Brand:{{brands.brand_name}}</li>
+            <li class="list-group-item">Available since:{{cars.created}}</li>
+            <li class="list-group-item">Oil consuption:Good</li>
+            <li class="list-group-item">Perfect in Harsh conditions</li>
+        </ul>
+        
+    </div>
+
+     <a href="{% url 'hire' %}"><Button class="btn btn-outline-primary">Hire</Button></a>
 </div>
 {% endblock content %}

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
+    phone=forms.CharField(max_length=13)
     
     class Meta:
         model=User
