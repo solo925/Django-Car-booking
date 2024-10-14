@@ -13,12 +13,8 @@ from .utils import lipa_na_mpesa_online
 
 def initiate_payment(request):
     phone_number = request.GET.get('phone')
-    amount = request.GET.get('amount')
-    account_reference = 'your_account_reference'
-    transaction_desc = 'Payment Description'
-    callback_url = 'https://your_domain.com/payments/callback'
-    
-    response = lipa_na_mpesa_online(phone_number, amount, account_reference, transaction_desc, callback_url)
+    amount = request.GET.get('amount') 
+    response = lipa_na_mpesa_online(phone_number, amount)
     return JsonResponse(response)
     
 
@@ -75,8 +71,6 @@ def Detail(request,pk):
     return render(request,"carbooking/detail.html",context)
 
 def Hire(request):
-
-    
     context={}
     return render(request,"carbooking/hire.html",context)
 
@@ -86,7 +80,6 @@ def Logout(request):
     
     return redirect("home")
 
-def Status():
-    pass
+    
     
     
